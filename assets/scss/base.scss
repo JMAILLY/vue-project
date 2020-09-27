@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Components / MIXINS
+   ========================================================================== */
+
+// Layout
+$wrapperMax             : 1440px;
+$wrapperMin             : 1250px;
+
+// Font sizes
+$base-font-size         : 14px;
+$line-height            : 1.4;
+$baseline               : 1.5;
+
+
+/*********************
+  BREAKPOINTS RESPONSIVE LAYOUT
+  *********************/
+
+@mixin breakpoint($point) {
+  @if $point == largedesktop {
+    @media (min-width: 1800px) { @content ; }
+  }@else if $point == mediumdesktop {
+    @media (min-width: 1500px) { @content ; }
+  }@else if $point == desktop {
+    @media (min-width: 1360px) { @content ; }
+  }@else if $point == laptop {
+    @media (min-width: 1200px) { @content ; }
+  }@else if $point == tablethor {
+    @media (min-width: 1000px) { @content ; }
+  }@else if $point == tablet {
+    @media (min-width: 760px) { @content ; }
+  }@else if $point == phablet {
+    @media (min-width: 576px)  { @content ; }
+  }@else if $point == mobileonly {
+    @media (max-width: 576px)  { @content ; }
+  }@else if $point == smallMobile {
+    @media (max-width: 325px)  { @content ; }
+  }@else {
+    @media (min-width: $point)  { @content ; }
+  }
+}
+
+// Wrapper
+@mixin wrapper($type: 'max') {
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @if $type == 'max' {
+    max-width: $wrapperMax;
+  }@else {
+    max-width: $wrapperMin;
+  }
+}
