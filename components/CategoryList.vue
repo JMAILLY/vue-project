@@ -13,7 +13,6 @@ export default {
   methods: {
     catFilter (cat) {
       this.$store.commit('newCat', cat)
-      console.log(this.$store.state.filters.category)
       this.$router.push('/products')
     }
   }

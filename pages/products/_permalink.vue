@@ -5,14 +5,16 @@
 </template>
 
 <script>
-
 export default {
   // eslint-disable-next-line require-await
-  async asyncData ({ app, params, store }) {
-    const url = `/products/${params.id}`
-    return app.$axios.get(url).then((response) => {
-      return { product: response.data }
+  async asyncData ({ params, $commerce }) {
+    const { permalink } = params
+    const product = await $commerce.products.retrieve(permalink, {
+      type: 'permalink'
     })
+    return {
+      product
+    }
   }
 }
 </script>

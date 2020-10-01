@@ -1,5 +1,5 @@
 <template>
-  <p>{{ product.name }}</p>
+  <p>{{ product.name }} : {{ product.price.formatted_with_code }}</p>
 </template>
 <script>
 export default {

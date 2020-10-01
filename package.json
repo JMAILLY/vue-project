@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@chakra-ui/nuxt": "^0.0.13",
+    "@chec/commerce.js": "^2.2.0",
     "@nuxt/content": "^1.8.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/emotion": "^0.0.1",

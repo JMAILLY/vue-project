@@ -5,8 +5,7 @@
         :to="{
           name: 'products-permalink',
           params:{permalink: product.permalink}
-        }"
-      >
+        }">
         <product-view :product="product" />
       </n-link>
     </li>
