@@ -1,6 +1,6 @@
 export const state = () => ({
   filters: {
-    category: 0,
+    category: null,
     sort: 'ASD'
   }
 })

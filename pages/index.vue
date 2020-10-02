@@ -1,13 +1,13 @@
 <template>
   <div class="wrapper">
     <main class="main">
-      <Vynile />
       <n-link to="/products">
         Products
       </n-link>
       <n-link to="/categories">
         Categories
       </n-link>
+      <Vynile />
     </main>
     <pre>{{ JSON.stringify(categories, null, 2) }}</pre>
     <pre>{{ JSON.stringify(products, null, 2) }}</pre>
