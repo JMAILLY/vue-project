@@ -14,7 +14,6 @@ export default {
   async asyncData ({ app, params, store }) {
     const url = `/categories/${params.id}`
     return app.$axios.get(url).then((response) => {
-      console.log(response.data)
       return {
         category: response.data
       }

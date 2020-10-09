@@ -9,8 +9,6 @@
       </n-link>
       <Vynile />
     </main>
-    <pre>{{ JSON.stringify(categories, null, 2) }}</pre>
-    <pre>{{ JSON.stringify(products, null, 2) }}</pre>
   </div>
 </template>
 

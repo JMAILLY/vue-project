@@ -1,4 +1,5 @@
 <template>
+  <section>
   <nav class="navigation">
     <div id="menuToggle">
       <input type="checkbox">
@@ -8,16 +9,33 @@
       <ul id="menu" />
     </div>
     <n-link to="/"><img src="~/assets/images/Eko_Logo.png"></n-link>
-    <CartIcon class="icon"/>
-    {{ this.$store.state.filters.category }}
-
+    <v-btn text @click.stop="drawer = !drawer">
+      <CartIcon class="icon"/>
+    </v-btn>
   </nav>
+    <div v-if="cart">
+      <checkout v-model="drawer" :cart="cart" @closeDrawer="drawer = !drawer" />
+    </div>
+  </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import CartIcon from '~/assets/images/shopping-bag.svg'
+import Checkout from '~/components/Checkout'
+
 export default {
-  components: { CartIcon }
+  components: { CartIcon, Checkout },
+  data: () => ({
+    drawer: false
+  }),
+  computed: {
+    ...mapGetters({
+      products: 'products',
+      cart: 'cart',
+      subtotal: 'cartSubtotal'
+    })
+  }
 }
 </script>
 
