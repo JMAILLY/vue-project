@@ -1,4 +1,7 @@
-// components/Checkout.vue
+/* Checkout
+Composant ajoutant le menu panier sur le coté
+*/
+
 <template>
   <v-navigation-drawer
     :value="value"
@@ -90,6 +93,7 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Checkout',
   props: {
+    // récupération des props du parent
     cart: {
       type: Object,
       default: () => {}
@@ -100,9 +104,13 @@ export default {
     }
   },
   methods: {
+    // ajout de call d'actions du store
     ...mapActions({
+      // suppréssion du produit du panier
       removeProduct: 'removeProductFromCart',
+      // clear le panier
       clearCart: 'clearCart',
+      // generation du token d'achat
       genToken: 'genCheckoutToken'
     })
   }

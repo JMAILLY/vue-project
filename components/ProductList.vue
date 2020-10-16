@@ -1,3 +1,4 @@
+/* Product list */
 <template>
   <ul>
     <li v-for="product in products" :key="product.permalink">
@@ -5,7 +6,8 @@
         :to="{
           name: 'products-permalink',
           params:{permalink: product.permalink}
-        }">
+        }"
+      >
         <product-view :product="product" />
       </n-link>
     </li>

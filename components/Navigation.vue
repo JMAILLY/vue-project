@@ -1,18 +1,21 @@
+/* Navigation */
 <template>
   <section>
-  <nav class="navigation">
-    <div id="menuToggle">
-      <input type="checkbox">
-      <span />
-      <span />
-      <span />
-      <ul id="menu" />
-    </div>
-    <n-link to="/"><img src="~/assets/images/Eko_Logo.png"></n-link>
-    <v-btn text @click.stop="drawer = !drawer">
-      <CartIcon class="icon"/>
-    </v-btn>
-  </nav>
+    <nav class="navigation">
+      <div id="menuToggle">
+        <input type="checkbox">
+        <span />
+        <span />
+        <span />
+        <ul id="menu" />
+      </div>
+      <n-link to="/">
+        <img src="~/assets/images/Eko_Logo.png">
+      </n-link>
+      <v-btn text @click.stop="drawer = !drawer">
+        <CartIcon class="icon" />
+      </v-btn>
+    </nav>
     <div v-if="cart">
       <checkout v-model="drawer" :cart="cart" @closeDrawer="drawer = !drawer" />
     </div>
@@ -27,9 +30,11 @@ import Checkout from '~/components/Checkout'
 export default {
   components: { CartIcon, Checkout },
   data: () => ({
+    // ouverture du menu cart
     drawer: false
   }),
   computed: {
+    // recupération des produits, panier, total
     ...mapGetters({
       products: 'products',
       cart: 'cart',

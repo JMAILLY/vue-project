@@ -1,3 +1,7 @@
+/* Filtres de la page produit
+Select de catégorie
+Champs de recherche
+*/
 <template>
   <div>
     <b-select v-model="selected" placeholder="Selectionnez une catégorie" rounded>
@@ -25,10 +29,12 @@ export default {
   props: ['categories'],
   data () {
     return {
+      // sauvegarde de la cat sélectionné
       selected: this.$store.state.filters.category
     }
   },
   computed: {
+    // filtre de recherche emit au parent pour filtre de la liste
     search: {
       get () {
         return this.value
@@ -39,6 +45,7 @@ export default {
     }
   },
   watch: {
+    // watch du selected pour un nouvel appel api avec le nouveau filtre selectionné
     selected () {
       this.$store.commit('newCat', this.selected)
     }

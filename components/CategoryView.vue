@@ -1,3 +1,4 @@
+/* Catégorie View */
 <template>
   <p>{{ category.name }}</p>
 </template>
