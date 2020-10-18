@@ -78,7 +78,9 @@ Composant ajoutant le menu panier sur le coté
         <v-btn
           color="green"
           class="white--text mt-10"
+          to="/checkout"
           x-large
+          @click="genToken(cart.id)"
         >
           <span>Checkout</span>
         </v-btn>
