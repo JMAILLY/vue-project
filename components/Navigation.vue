@@ -52,8 +52,13 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 100px;
+    background: white;
     img{
       height: 50px;
+    }
+    .v-size--default{
+      min-width: auto !important;
+      padding: 0 !important;
     }
   }
   #menuToggle {

@@ -3,8 +3,9 @@ Select de catégorie
 Champs de recherche
 */
 <template>
-  <div>
+  <div class="filters">
     <b-select v-model="selected" placeholder="Selectionnez une catégorie" rounded>
+      <option :value="null">Tous</option>
       <option
         v-for="category in categories"
         :key="category.id"
@@ -18,7 +19,7 @@ Champs de recherche
         v-model="search"
         type="text"
         :lazy="false"
-        placeholder="Input"
+        placeholder="Search..."
       />
     </b-field>
   </div>
@@ -52,3 +53,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '/assets/scss/base.scss';
+  .filters{
+    @include wrapper('min');
+    display: flex;
+    justify-content: space-between;
+  }
+</style>

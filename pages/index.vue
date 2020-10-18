@@ -1,25 +1,23 @@
 <template>
   <div class="wrapper">
     <main class="main">
-      <n-link to="/products">
+      <n-link to="/products" class="item">
         Products
       </n-link>
-      <n-link to="/categories">
+      <n-link to="/categories" class="item">
         Categories
       </n-link>
-      <Vynile />
+      <img class="vynile" src="~/assets/images/1024px-Disque_Vinyl.png">
     </main>
   </div>
 </template>
 
 <script>
-import Vynile from '~/components/Vynile'
 
 export default {
   name: 'HomePage',
 
   components: {
-    Vynile
   },
 
   async asyncData ({ $commerce }) {
@@ -33,3 +31,31 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+    position: relative;
+    overflow: hidden;
+    .item{
+      color: black;
+      font-size: 36px;
+      margin: 15px;
+      font-weight: 300;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .vynile{
+      position: absolute;
+      bottom: 0;
+      transform: translate(107%, 50%);
+      right: 50%;
+      z-index: -1;
+    }
+  }
+
+</style>
