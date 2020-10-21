@@ -84,19 +84,6 @@
         />
       </v-col>
       <v-col class="py-0">
-        <v-select
-          v-model="region"
-          dense
-          item-text="name"
-          item-value="code"
-          label="Region"
-          name="region"
-          outlined
-          :items="country.states"
-          :rules="[rules.required]"
-        />
-      </v-col>
-      <v-col class="py-0">
         <v-text-field
           v-model="postalCode"
           dense
@@ -168,26 +155,29 @@ export default {
     address: '',
     country: {},
     city: '',
-    region: '',
     postalCode: '',
     cardNumber: '4242 4242 4242 4242',
     expiryDate: '01/2023',
     cvc: '123',
     cardZip: '94103',
     rules: {
+      // Check email
       email: (v) => {
         const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         return pattern.test(v) || 'Invalid e-mail.'
       },
+      // Est requis ?
       required: v => !!v || 'Required.'
     }
   }),
   computed: {
+    // Get le checkout token
     ...mapGetters({
       token: 'token'
     })
   },
   methods: {
+    // Options d'envoie par pays
     shippingOpts (tokenID) {
       this.$commerce.checkout
         .getShippingOptions(tokenID, {
@@ -198,6 +188,7 @@ export default {
           this.shipMethod = r[0].id
         })
     },
+    // Submit qui fonctionne, mais bug sur le token
     submitOrder () {
       if (!this.$refs.billing.validate()) { return } // eslint-disable-line no-useless-return
       const date = this.expiryDate.split('/')
@@ -220,7 +211,6 @@ export default {
           name: `${this.firstName} ${this.lastName}`,
           street: this.address,
           town_city: this.city,
-          county_state: this.region,
           postal_zip_code: this.postalCode,
           country: this.country.code
         },
@@ -239,7 +229,7 @@ export default {
         }
       }
 
-      // make request
+      // make request to commerce
       this.$commerce.checkout
         .capture(this.token.id, data)
         .then((r) => {

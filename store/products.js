@@ -1,3 +1,4 @@
+// data inutile
 export const state = () => ({
   data: [
     {

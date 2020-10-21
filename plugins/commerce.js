@@ -1,3 +1,4 @@
+// import de commerce via API
 import CommerceSDK from '@chec/commerce.js'
 
 const commerce = new CommerceSDK(process.env.NUXT_ENV_CHEC_PUBLIC_API_KEY)
