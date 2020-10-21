@@ -18,7 +18,7 @@
           <v-card-title class="pb-0">
             Order Summary
           </v-card-title>
-          <v-container>
+          <v-container v-if="cart">
             <v-row justify="space-between">
               <v-card-subtitle class="title py-1 pl-3">
                 Product
