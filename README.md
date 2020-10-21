@@ -10,8 +10,8 @@ $ yarn install
 $ yarn dev
 
 # build for production and launch server
-$ yarn build
-$ yarn start
+$ nuxt build
+$ nuxt start
 
 # generate static project
 $ yarn generate
