@@ -1,6 +1,6 @@
 // import de commerce
 import CommerceSDK from '@chec/commerce.js'
-const commerce = new CommerceSDK(process.env.NUXT_ENV_CHEC_PUBLIC_API_KEY)
+const commerce = new CommerceSDK('pk_190616467cec4e8847640611660746512074197a2322d')
 export const state = () => ({
   filters: {
     category: null,
